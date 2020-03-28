@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="572,2902" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="572,3064" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
       <x:String>System.Activities</x:String>
@@ -27,7 +27,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="18">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="36">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -46,6 +46,7 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -54,7 +55,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Main" sap:VirtualizedContainerService.HintSize="552,2802" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence DisplayName="Main" sap:VirtualizedContainerService.HintSize="552,2964" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:GenericValue" Name="varLocation" />
       <Variable x:TypeArguments="sd:DataTable" Name="varSortedDataTable" />
@@ -76,13 +77,13 @@
         <OutArgument x:TypeArguments="ui:GenericValue">[varLocation]</OutArgument>
       </ui:InputDialog.Result>
     </ui:InputDialog>
-    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="510,2578" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Private="True" Url="https://property24.com">
+    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="510,2740" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Private="True" Url="https://property24.com">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="476,2479" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="476,2641" sap2010:WorkflowViewState.IdRef="Sequence_10">
             <Sequence.Variables>
               <Variable x:TypeArguments="sd:DataTable" Name="varFinalTable" />
             </Sequence.Variables>
@@ -91,6 +92,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
+            <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
             <ui:TypeInto Activate="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" ClickBeforeTyping="True" DisplayName="Enter Location" sap:VirtualizedContainerService.HintSize="434,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" Text="[varLocation]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="39185fdd4e8e9fd232e01df85b5d56f6" Selector="&lt;webctrl parentid='SearchBox' tag='LI' /&gt;">
@@ -203,7 +205,7 @@
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
-            <ui:ExtractData DelayBetweenPagesMS="{x:Null}" ContinueOnError="True" DataTable="[varDataTable]" DisplayName="Extract Structured Data" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='body' idx='1' /&gt;&lt;webctrl class='p24_theme' tag='div' idx='1' /&gt;&lt;webctrl class='p24_results' tag='div' idx='1' /&gt;&lt;webctrl class='container' tag='div' idx='1' /&gt;&lt;webctrl class='row' tag='div' idx='1' /&gt;&lt;webctrl class='col-xs-9' tag='div' idx='1' /&gt;&lt;webctrl class='js_listingResultsContainer' tag='div' idx='1' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl class='p24_regularTile js_rollover_container ' tag='div' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl class='p24_content' tag='span' idx='1' /&gt;&lt;webctrl tag='span' idx='2' /&gt;&lt;/row&gt;&lt;column name='Rental Prices' attr='text' exact='1'&gt;&lt;webctrl tag='body' idx='1' /&gt;&lt;webctrl class='p24_theme' tag='div' idx='1' /&gt;&lt;webctrl class='p24_results' tag='div' idx='1' /&gt;&lt;webctrl class='container' tag='div' idx='1' /&gt;&lt;webctrl class='row' tag='div' idx='1' /&gt;&lt;webctrl class='col-xs-9' tag='div' idx='1' /&gt;&lt;webctrl class='js_listingResultsContainer' tag='div' idx='1' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl class='p24_regularTile js_rollover_container ' tag='div' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl class='p24_content' tag='span' idx='1' /&gt;&lt;webctrl tag='span' idx='2' /&gt;&lt;webctrl class='p24_price' tag='span' idx='1' /&gt;&lt;/column&gt;&lt;column name='Residence Type' attr='text' exact='1'&gt;&lt;webctrl tag='body' idx='1' /&gt;&lt;webctrl class='p24_theme' tag='div' idx='1' /&gt;&lt;webctrl class='p24_results' tag='div' idx='1' /&gt;&lt;webctrl class='container' tag='div' idx='1' /&gt;&lt;webctrl class='row' tag='div' idx='1' /&gt;&lt;webctrl class='col-xs-9' tag='div' idx='1' /&gt;&lt;webctrl class='js_listingResultsContainer' tag='div' idx='1' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl class='p24_regularTile js_rollover_container ' tag='div' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl class='p24_content' tag='span' idx='1' /&gt;&lt;webctrl tag='span' idx='2' /&gt;&lt;webctrl class='p24_title ' tag='span' idx='1' /&gt;&lt;/column&gt;&lt;column name='Locality' attr='text' exact='1'&gt;&lt;webctrl tag='body' idx='1' /&gt;&lt;webctrl class='p24_theme' tag='div' idx='1' /&gt;&lt;webctrl class='p24_results' tag='div' idx='1' /&gt;&lt;webctrl class='container' tag='div' idx='1' /&gt;&lt;webctrl class='row' tag='div' idx='1' /&gt;&lt;webctrl class='col-xs-9' tag='div' idx='1' /&gt;&lt;webctrl class='js_listingResultsContainer' tag='div' idx='1' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl class='p24_regularTile js_rollover_container ' tag='div' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl class='p24_content' tag='span' idx='1' /&gt;&lt;webctrl tag='span' idx='2' /&gt;&lt;webctrl class='p24_location ' tag='span' idx='1' /&gt;&lt;/column&gt;&lt;column name='Description' attr='text' exact='1'&gt;&lt;webctrl tag='body' idx='1' /&gt;&lt;webctrl class='p24_theme' tag='div' idx='1' /&gt;&lt;webctrl class='p24_results' tag='div' idx='1' /&gt;&lt;webctrl class='container' tag='div' idx='1' /&gt;&lt;webctrl class='row' tag='div' idx='1' /&gt;&lt;webctrl class='col-xs-9' tag='div' idx='1' /&gt;&lt;webctrl class='js_listingResultsContainer' tag='div' idx='1' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl class='p24_regularTile js_rollover_container ' tag='div' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl class='p24_content' tag='span' idx='1' /&gt;&lt;webctrl tag='span' idx='2' /&gt;&lt;webctrl class='p24_excerpt' tag='span' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="ExtractData_6" MaxNumberOfResults="0" NextLinkSelector="&lt;webctrl aaname='Next' tag='A' /&gt;" SimulateClick="True">
+            <ui:ExtractData DelayBetweenPagesMS="{x:Null}" ContinueOnError="True" DataTable="[varDataTable]" DisplayName="Extract Structured Data" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='body' idx='1' /&gt;&lt;webctrl class='p24_theme' tag='div' idx='1' /&gt;&lt;webctrl class='p24_results' tag='div' idx='1' /&gt;&lt;webctrl class='container' tag='div' idx='1' /&gt;&lt;webctrl class='row' tag='div' idx='1' /&gt;&lt;webctrl class='col-xs-9' tag='div' idx='1' /&gt;&lt;webctrl class='js_listingResultsContainer' tag='div' idx='1' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl class='p24_regularTile js_rollover_container ' tag='div' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl class='p24_content' tag='span' idx='1' /&gt;&lt;webctrl tag='span' idx='2' /&gt;&lt;/row&gt;&lt;column name='Rental Prices' attr='text' exact='1'&gt;&lt;webctrl tag='body' idx='1' /&gt;&lt;webctrl class='p24_theme' tag='div' idx='1' /&gt;&lt;webctrl class='p24_results' tag='div' idx='1' /&gt;&lt;webctrl class='container' tag='div' idx='1' /&gt;&lt;webctrl class='row' tag='div' idx='1' /&gt;&lt;webctrl class='col-xs-9' tag='div' idx='1' /&gt;&lt;webctrl class='js_listingResultsContainer' tag='div' idx='1' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl class='p24_regularTile js_rollover_container ' tag='div' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl class='p24_content' tag='span' idx='1' /&gt;&lt;webctrl tag='span' idx='2' /&gt;&lt;webctrl class='p24_price' tag='span' idx='1' /&gt;&lt;/column&gt;&lt;column name='Residence Type' attr='text' exact='1'&gt;&lt;webctrl tag='body' idx='1' /&gt;&lt;webctrl class='p24_theme' tag='div' idx='1' /&gt;&lt;webctrl class='p24_results' tag='div' idx='1' /&gt;&lt;webctrl class='container' tag='div' idx='1' /&gt;&lt;webctrl class='row' tag='div' idx='1' /&gt;&lt;webctrl class='col-xs-9' tag='div' idx='1' /&gt;&lt;webctrl class='js_listingResultsContainer' tag='div' idx='1' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl class='p24_regularTile js_rollover_container ' tag='div' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl class='p24_content' tag='span' idx='1' /&gt;&lt;webctrl tag='span' idx='2' /&gt;&lt;webctrl class='p24_title ' tag='span' idx='1' /&gt;&lt;/column&gt;&lt;column name='Locality' attr='text' exact='1'&gt;&lt;webctrl tag='body' idx='1' /&gt;&lt;webctrl class='p24_theme' tag='div' idx='1' /&gt;&lt;webctrl class='p24_results' tag='div' idx='1' /&gt;&lt;webctrl class='container' tag='div' idx='1' /&gt;&lt;webctrl class='row' tag='div' idx='1' /&gt;&lt;webctrl class='col-xs-9' tag='div' idx='1' /&gt;&lt;webctrl class='js_listingResultsContainer' tag='div' idx='1' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl class='p24_regularTile js_rollover_container ' tag='div' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl class='p24_content' tag='span' idx='1' /&gt;&lt;webctrl tag='span' idx='2' /&gt;&lt;webctrl class='p24_location ' tag='span' idx='1' /&gt;&lt;/column&gt;&lt;column name='Description' attr='text' exact='1'&gt;&lt;webctrl tag='body' idx='1' /&gt;&lt;webctrl class='p24_theme' tag='div' idx='1' /&gt;&lt;webctrl class='p24_results' tag='div' idx='1' /&gt;&lt;webctrl class='container' tag='div' idx='1' /&gt;&lt;webctrl class='row' tag='div' idx='1' /&gt;&lt;webctrl class='col-xs-9' tag='div' idx='1' /&gt;&lt;webctrl class='js_listingResultsContainer' tag='div' idx='1' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl class='p24_regularTile js_rollover_container ' tag='div' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl class='p24_content' tag='span' idx='1' /&gt;&lt;webctrl tag='span' idx='2' /&gt;&lt;webctrl class='p24_excerpt' tag='span' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="ExtractData_6" MaxNumberOfResults="100" NextLinkSelector="&lt;webctrl aaname='Next' tag='A' /&gt;" SimulateClick="True">
               <ui:ExtractData.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="dd615ba301fbc78c9102ef2b62eb90b9" Selector="&lt;webctrl idx='1' tag='HTML' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
@@ -215,13 +217,13 @@
             <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="Rental Prices" DataTable="[varDataTable]" DisplayName="Sort Data Table" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="SortDataTable_4" Order="Ascending" OutputDataTable="[varSortedDataTable]" SortOrder="Ascending" />
             <ui:OutputDataTable DataTable="[varSortedDataTable]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="OutputDataTable_4" Text="[strDataTableOutput]" />
             <ui:BuildDataTable DataTable="[varDataTableFinal]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="434,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Rental_x0020_Prices&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Residence_x0020_Type&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Locality&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Description&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
-            <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[varSortedDataTable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="434,677" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+            <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[varSortedDataTable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="434,777" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
               <ui:ForEachRow.Body>
                 <ActivityAction x:TypeArguments="sd:DataRow">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,530" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,630" sap2010:WorkflowViewState.IdRef="Sequence_11">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -247,6 +249,14 @@
                         <OutArgument x:TypeArguments="ui:GenericValue">[varDesc]</OutArgument>
                       </ui:GetRowItem.Value>
                     </ui:GetRowItem>
+                    <Assign DisplayName="Replace In with \" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="ui:GenericValue">[varDesc]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="ui:GenericValue">[varDesc.Replace(" in ","\")]</InArgument>
+                      </Assign.Value>
+                    </Assign>
                     <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{varPrice, varResType, varLocality, varDesc}]" DataTable="[varDataTableFinal]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
                   </Sequence>
                 </ActivityAction>
