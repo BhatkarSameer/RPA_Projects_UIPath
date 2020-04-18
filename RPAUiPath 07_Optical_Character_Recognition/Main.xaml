@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="220,183" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="616,1901" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="21">
+    <scg:List x:TypeArguments="x:String" Capacity="42">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -22,10 +22,12 @@
       <x:String>UiPath.Core</x:String>
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="15">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -41,41 +43,125 @@
       <AssemblyReference>System.Xaml</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main" sap:VirtualizedContainerService.HintSize="454,651" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence DisplayName="Main" sap:VirtualizedContainerService.HintSize="596,1801" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="varFileList" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="AvlAvview" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="varProdName" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="varCompanyName" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap:VirtualizedContainerService.HintSize="412,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign sap:VirtualizedContainerService.HintSize="554,60" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="s:String[]">[varFileList]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles("Scanned Documents","*.pdf")]</InArgument>
+        <InArgument x:TypeArguments="s:String[]">[directory.GetFiles("Scanned Documents","*.pdf")]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="412,459" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[varFileList]">
+    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="554,1609" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[varFileList]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="file" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,325" sap2010:WorkflowViewState.IdRef="Sequence_1">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="518,1475" sap2010:WorkflowViewState.IdRef="Sequence_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Start Process" FileName="[file.ToString]" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="StartProcess_1" />
-            <ui:CloseApplication DisplayName="Close Application 'AcroRd32.exe 2.1'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="CloseApplication_1">
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="476,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="Reached 1" />
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="476,61" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[file.ToString]" />
+            <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Start Process" FileName="[file.ToString]" sap:VirtualizedContainerService.HintSize="476,87" sap2010:WorkflowViewState.IdRef="StartProcess_1" />
+            <Sequence DisplayName="Screen Scraping" sap:VirtualizedContainerService.HintSize="476,706" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window '21BCTC 62 Acrobatsd'" sap:VirtualizedContainerService.HintSize="434,614" sap2010:WorkflowViewState.IdRef="WindowScope_2" InformativeScreenshot="beaa8cc5a47e1a32644c90cd6ebb1687" Selector="&lt;wnd app='acrord32.exe' cls='AcrobatSDIWindow' title='*.pdf - Adobe Acrobat Reader DC' /&gt;">
+                <ui:WindowScope.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,468" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'AVL_AVView'" sap:VirtualizedContainerService.HintSize="334,168" sap2010:WorkflowViewState.IdRef="GetOCRText_1">
+                        <ui:GetOCRText.OCREngine>
+                          <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+                            <ActivityFunc.Argument>
+                              <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                            </ActivityFunc.Argument>
+                            <ui:MicrosoftOCR FilterRegion="{x:Null}" Output="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Microsoft OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="MicrosoftOCR_1" Image="[Image]" Language="English (United Kingdom)" Profile="Screen" Scale="4" />
+                          </ActivityFunc>
+                        </ui:GetOCRText.OCREngine>
+                        <ui:GetOCRText.Target>
+                          <ui:Target Element="{x:Null}" InformativeScreenshot="7a4459b72029605088959639fd8d7905" Selector="&lt;wnd aaname='Document Pane' cls='AVL_AVView' title='AVScrolledPageView' /&gt;&lt;wnd aaname='Alert: Empty document' cls='AVL_AVView' title='AVPageView' /&gt;">
+                            <ui:Target.ClippingRegion>
+                              <ui:Region Rectangle="639, 320, 484, 22" />
+                            </ui:Target.ClippingRegion>
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:GetOCRText.Target>
+                        <ui:GetOCRText.Text>
+                          <OutArgument x:TypeArguments="ui:GenericValue">[varProdName]</OutArgument>
+                        </ui:GetOCRText.Text>
+                      </ui:GetOCRText>
+                      <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'AVL_AVView'" sap:VirtualizedContainerService.HintSize="334,168" sap2010:WorkflowViewState.IdRef="GetOCRText_2">
+                        <ui:GetOCRText.OCREngine>
+                          <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+                            <ActivityFunc.Argument>
+                              <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                            </ActivityFunc.Argument>
+                            <ui:MicrosoftOCR FilterRegion="{x:Null}" Output="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Microsoft OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="MicrosoftOCR_2" Image="[Image]" Language="English (United Kingdom)" Profile="Screen" Scale="4" />
+                          </ActivityFunc>
+                        </ui:GetOCRText.OCREngine>
+                        <ui:GetOCRText.Target>
+                          <ui:Target Element="{x:Null}" InformativeScreenshot="be0f8fd6d121229ff051f628bdee969f" Selector="&lt;wnd aaname='Document Pane' cls='AVL_AVView' title='AVScrolledPageView' /&gt;&lt;wnd aaname='Alert: Empty document' cls='AVL_AVView' title='AVPageView' /&gt;">
+                            <ui:Target.ClippingRegion>
+                              <ui:Region Rectangle="639, 454, 487, 27" />
+                            </ui:Target.ClippingRegion>
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:GetOCRText.Target>
+                        <ui:GetOCRText.Text>
+                          <OutArgument x:TypeArguments="ui:GenericValue">[varCompanyName]</OutArgument>
+                        </ui:GetOCRText.Text>
+                      </ui:GetOCRText>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:WindowScope.Body>
+              </ui:WindowScope>
+            </Sequence>
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="476,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;Reached 2&quot; + varProdName + &quot;&quot; + varCompanyName]" />
+            <ui:CloseApplication DisplayName="Close Application 'AcroRd32.exe 2.1'" sap:VirtualizedContainerService.HintSize="476,106" sap2010:WorkflowViewState.IdRef="CloseApplication_2">
               <ui:CloseApplication.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="f7d8216f55b3dcbeef397347a33ce88e" Selector="&lt;wnd app='acrord32.exe' cls='AcrobatSDIWindow' title='*.pdf - Adobe Acrobat Reader DC' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="590afd2b2a069e86c6a5c4af0196e8ed" Selector="&lt;wnd app='acrord32.exe' cls='AcrobatSDIWindow' title='*.pdf - Adobe Acrobat Reader DC' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -85,6 +171,7 @@
                 </ui:Target>
               </ui:CloseApplication.Target>
             </ui:CloseApplication>
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="476,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="Reached 3" />
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>
