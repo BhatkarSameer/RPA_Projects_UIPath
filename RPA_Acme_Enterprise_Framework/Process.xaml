@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>498,1592</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>498,1657</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -58,7 +58,7 @@
       <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: In this file all other process specific files will be invoked. If an application exception occurs, the current transaction can be retried. If a BRE is thrown, the transaction will be skipped. Can be a flowchart or sequence. " DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="478,1492" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Description: In this file all other process specific files will be invoked. If an application exception occurs, the current transaction can be retried. If a BRE is thrown, the transaction will be skipped. Can be a flowchart or sequence. " DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="478,1557" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="varPwd" />
       <Variable x:TypeArguments="sd:DataTable" Name="varDTWorkItem" />
@@ -66,6 +66,7 @@
       <Variable x:TypeArguments="x:String" Name="strClientID" />
       <Variable x:TypeArguments="x:String" Name="strClientName" />
       <Variable x:TypeArguments="x:String" Name="strClientCountry" />
+      <Variable x:TypeArguments="x:String" Name="strGeneratedHashCode" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -73,13 +74,6 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:GetPassword DisplayName="Get Password" sap:VirtualizedContainerService.HintSize="436,22" sap2010:WorkflowViewState.IdRef="GetPassword_1" ProtectedPassword="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAbO4l90Tqr0mE/nOWZCGZEQAAAAACAAAAAAAQZgAAAAEAACAAAABoEMjdwVPtj+nVSqlNplROpfZmFYSwBBmW0jUGUaak1gAAAAAOgAAAAAIAACAAAACi5rhXZuxuPLnPT9RtxNaDvR96pIbTMVwSGGc9CHen5RAAAADx2j6d1p/7whe0doald9eNQAAAACFdmYM5x5uWPdvEXAHk7KKfpN7dqY3aHCsQm97xE81StpbXs1eh8vLky9VIe7LPVHscp1u69QWd2/XjR5A+ZFs=" Result="[varPwd]" />
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Login" sap:VirtualizedContainerService.HintSize="436,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Acme\ACME_login.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_UserName">bhatkar.sameer@tcs.com</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_Password">[varPwd]</InArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-    </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ACME_Navigation workflow" sap:VirtualizedContainerService.HintSize="436,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Acme\ACME_Navigation.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_varWIID">516945</InArgument>
@@ -131,6 +125,19 @@
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_SearchCriteria">Client Country</InArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="out_varFoundValue">[strClientCountry]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Generate_SHA1_encryption workflow" sap:VirtualizedContainerService.HintSize="436,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="SHA1\Generate_SHA1_encryption.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_hashCode">[strGeneratedHashCode]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_url">http://www.sha1-online.com/</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_CustInfo">[strClientID+" - "+strClientName+" - "+strClientCountry]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ACME_Update_Work_Item workflow" sap:VirtualizedContainerService.HintSize="436,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Acme\ACME_Update_Work_Item.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_GeneratedHashCode">[strGeneratedHashCode]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_WorkItemStatus">Completed</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
   </Sequence>
