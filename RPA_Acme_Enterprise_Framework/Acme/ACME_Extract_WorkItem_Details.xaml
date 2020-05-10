@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>703,1548</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>870,1653</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ACME_Navigation_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -75,7 +75,7 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:GetFullText IgnoreHidden="{x:Null}" DisplayName="Get Full Text 'P'" sap:VirtualizedContainerService.HintSize="599,106" sap2010:WorkflowViewState.IdRef="GetFullText_1">
+      <ui:GetFullText IgnoreHidden="{x:Null}" DisplayName="Get Work Item Details" sap:VirtualizedContainerService.HintSize="599,106" sap2010:WorkflowViewState.IdRef="GetFullText_1">
         <ui:GetFullText.Target>
           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="9033c776ebec8f82f8686f3949496c46" Selector="&lt;html title='ACME System 1 - Work Items' /&gt;&lt;webctrl idx='1' tag='P' /&gt;">
             <ui:Target.TimeoutMS>
