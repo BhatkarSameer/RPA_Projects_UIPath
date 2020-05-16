@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>870,1838</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>870,1798</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ACME_login_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="42">
@@ -106,9 +106,9 @@
                         </ui:Target>
                       </ui:TypeInto.Target>
                     </ui:TypeInto>
-                    <ui:TypeSecureText ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Password" sap:VirtualizedContainerService.HintSize="579,106" sap2010:WorkflowViewState.IdRef="TypeSecureText_1" SecureText="[in_Password]">
+                    <ui:TypeSecureText ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Secure Password" sap:VirtualizedContainerService.HintSize="579,106" sap2010:WorkflowViewState.IdRef="TypeSecureText_3" SecureText="[in_Password]">
                       <ui:TypeSecureText.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="ecf4fd9e2b5a522418223883ae050a4b" Selector="&lt;webctrl id='password' tag='INPUT' /&gt;">
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="1ac18a8cbe77abd2865d25cbf2dd5e6e" Selector="&lt;webctrl id='password' tag='INPUT' /&gt;">
                           <ui:Target.TimeoutMS>
                             <InArgument x:TypeArguments="x:Int32" />
                           </ui:Target.TimeoutMS>
